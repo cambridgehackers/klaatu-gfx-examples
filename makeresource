@@ -1,0 +1,10 @@
+#
+set -e
+set -x
+if test "$1" == "" ; then
+    echo "./makeresource <dirname>"
+    exit 1
+fi
+TOPDIR=`pwd`
+rm -f sio2.zip
+(cd $1; zip -q $TOPDIR/sio2.zip assets/*)

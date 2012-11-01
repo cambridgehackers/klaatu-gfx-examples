@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="versionCode" format="integer" />
+    <attr name="versionName" format="string" />
+    <attr name="jjpersistent" format="boolean" />
+    <declare-styleable name="AndroidManifestUsesSdk" parent="AndroidManifest">
+        <attr name="minSdkVersion" format="integer|string" />
+        <attr name="targetSdkVersion" format="integer|string" />
+        <attr name="maxSdkVersion" format="integer" />
+    </declare-styleable>
+</resources>
