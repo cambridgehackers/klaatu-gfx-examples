@@ -1,0 +1,8 @@
+
+The gfx 3d engine from sio2interactive.com.
+Downloaded from http://gfx.sio2interactive.com/download.php on 31 October 2012.
+(actual URI was http://gfx.sio2interactive.com/SDK.zip)
+
+Note that the iOS specific files and precompiled files were deleted.
+Also, the 'common' directory was deleted, since these were separately downloaded
+and checked into klaatu-gfx and klaatu-gfx-extra repos.
