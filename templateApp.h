@@ -1,5 +1,5 @@
 
-#include "common/gfx.h"
+#include "gfx.h"
 #include "klaatu_api.h"
 
 #define templateAppInit KlaatuAPI::init

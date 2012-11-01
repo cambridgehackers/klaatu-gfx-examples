@@ -4,8 +4,8 @@ TEST_DIRECTORY := 12-4
 include $(CLEAR_VARS)
 LOCAL_ARM_MODE := arm
 LOCAL_MODULE := libopenal
-SRC_FILES := $(wildcard $(LOCAL_PATH)/common/openal/*.c)
-LOCAL_SRC_FILES := $(SRC_FILES:$(LOCAL_PATH)/%=%) klaatu_audio.cpp
+SRC_FILES := $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/openal/*.c)
+LOCAL_SRC_FILES := $(SRC_FILES:$(LOCAL_PATH)/%=%) ../klaatu-api/klaatu_audio.cpp
 LOCAL_LDLIBS = -llog
 LOCAL_CFLAGS := -O3 -mno-thumb
 LOCAL_CPPFLAGS := -O3 -mno-thumb
@@ -13,7 +13,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_SHARED_LIBRARIES := liblog libmedia libbinder libcutils libutils
 
 # in 2.3, the path in 'build/core/combo/TARGET_linux-arm.mk' mistakenly includes 'arch/' !!!
-LOCAL_C_INCLUDES += bionic/libm/include/arm external/sio2/common/openal
+LOCAL_C_INCLUDES += bionic/libm/include/arm external/klaatu-gfx-extra/openal external/klaatu-api
 LOCAL_PRELINK_MODULE = false
 include $(BUILD_SHARED_LIBRARY)
 
@@ -21,21 +21,23 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_ARM_MODE := arm
 LOCAL_MODULE := foobar
-LOCAL_C_INCLUDES = $(LOCAL_PATH)/common/openal/
+LOCAL_C_INCLUDES = $(LOCAL_PATH)/../klaatu-gfx-extra/openal/
 LOCAL_C_INCLUDES += external/stlport/stlport bionic frameworks/native/include frameworks/base/services $(LOCAL_PATH)
 LOCAL_C_INCLUDES += frameworks/base/include/surfaceflinger frameworks/native/include/gui \
-    frameworks/base/services/input frameworks/base/include/ui
-SRC_FILES := $(wildcard $(LOCAL_PATH)/common/*.cpp)
-SRC_FILES += $(wildcard $(LOCAL_PATH)/common/bullet/*.cpp)
-SRC_FILES += $(wildcard $(LOCAL_PATH)/common/ttf/*.cpp)
-SRC_FILES += $(wildcard $(LOCAL_PATH)/common/nvtristrip/*.cpp)
-SRC_FILES += $(wildcard $(LOCAL_PATH)/common/png/*.c)
-SRC_FILES += $(wildcard $(LOCAL_PATH)/common/zlib/*.c)
-SRC_FILES += $(wildcard $(LOCAL_PATH)/common/detour/*.cpp)
-SRC_FILES += $(wildcard $(LOCAL_PATH)/common/recast/*.cpp)
-SRC_FILES += $(wildcard $(LOCAL_PATH)/common/vorbis/*.c)
+    frameworks/base/services/input frameworks/base/include/ui external/klaatu-api external/klaatu-gfx external/klaatu-gfx-extra
+SRC_FILES := $(wildcard $(LOCAL_PATH)/../klaatu-gfx/*.cpp)
+SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/bullet/*.cpp)
+SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/ttf/*.cpp)
+SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/nvtristrip/*.cpp)
+SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/png/*.c)
+SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/zlib/*.c)
+SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/detour/*.cpp)
+SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/recast/*.cpp)
+SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/vorbis/*.c)
 SRC_FILES := $(SRC_FILES:$(LOCAL_PATH)/%=%)
-LOCAL_SRC_FILES := $(SRC_FILES) sdk/$(TEST_DIRECTORY)/templateApp.cpp klaatu_api.cpp klaatu_touch.cpp klaatu_sensor.cpp klaatu_audio.cpp
+LOCAL_SRC_FILES := $(SRC_FILES) sdk/$(TEST_DIRECTORY)/templateApp.cpp \
+    ../klaatu-api/klaatu_api.cpp ../klaatu-api/klaatu_touch.cpp \
+    ../klaatu-api/klaatu_sensor.cpp ../klaatu-api/klaatu_audio.cpp
 LOCAL_SHARED_LIBRARIES := libopenal libstlport libEGL libGLESv2 liblog \
         libutils libbinder libgui
 ifeq ($(PLATFORM_VERSION),2.3.3)
