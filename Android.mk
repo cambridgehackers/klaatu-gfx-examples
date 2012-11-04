@@ -18,7 +18,7 @@ SRC_FILES := $(OPENALTOP)/Alc/ALc.c $(OPENALTOP)/Alc/alcConfig.c \
     $(OPENALTOP)/OpenAL32/alThunk.c
 LOCAL_C_INCLUDES += external/klaatu-openal-soft/android/jni
 LOCAL_C_INCLUDES += external/klaatu-openal-soft/include external/klaatu-openal-soft/OpenAL32/Include
-LOCAL_SRC_FILES := $(SRC_FILES:$(LOCAL_PATH)/%=%) ../klaatu-api/klaatu_audio.cpp ../klaatu-gfx-extra/openalandroid.c
+LOCAL_SRC_FILES := $(SRC_FILES:$(LOCAL_PATH)/%=%) ../klaatu-api/klaatu_audio.cpp ../klaatu-api/openalandroid.c
 LOCAL_LDLIBS = -llog
 LOCAL_CFLAGS := -O3 -mno-thumb -DAL_ALEXT_PROTOTYPES
 LOCAL_CPPFLAGS := -O3 -mno-thumb
