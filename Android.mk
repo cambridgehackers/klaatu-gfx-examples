@@ -42,136 +42,15 @@ LOCAL_C_INCLUDES += external/libpng external/klaatu-recastnavigation/Detour/Incl
 LOCAL_C_INCLUDES += external/klaatu-recastnavigation/Detour/Include external/klaatu-recastnavigation/Recast/Include external/klaatu-recastnavigation/DebugUtils/Include
 SRC_FILES := $(wildcard $(LOCAL_PATH)/../klaatu-gfx/*.cpp)
 BULLETSOURCE := $(LOCAL_PATH)/../klaatu-bullet
-SRC_FILES += $(BULLETSOURCE)/Extras/Serialize/BulletFileLoader/bChunk.cpp \
-    $(BULLETSOURCE)/Extras/Serialize/BulletFileLoader/bDNA.cpp \
-    $(BULLETSOURCE)/Extras/Serialize/BulletFileLoader/bFile.cpp \
-    $(BULLETSOURCE)/Extras/Serialize/BulletFileLoader/btBulletFile.cpp \
-    $(BULLETSOURCE)/Extras/Serialize/BulletWorldImporter/btBulletWorldImporter.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/BroadphaseCollision/btAxisSweep3.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/BroadphaseCollision/btBroadphaseProxy.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/BroadphaseCollision/btCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/BroadphaseCollision/btDbvtBroadphase.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/BroadphaseCollision/btDbvt.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/BroadphaseCollision/btDispatcher.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/BroadphaseCollision/btMultiSapBroadphase.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/BroadphaseCollision/btOverlappingPairCache.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/BroadphaseCollision/btQuantizedBvh.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/BroadphaseCollision/btSimpleBroadphase.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btActivatingCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btBox2dBox2dCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btBoxBoxCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btBoxBoxDetector.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btCollisionDispatcher.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btCollisionObject.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btCollisionWorld.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btCompoundCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btConvex2dConvex2dAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btConvexConcaveCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btConvexConvexAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btConvexPlaneCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btDefaultCollisionConfiguration.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btEmptyCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btGhostObject.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btInternalEdgeUtility.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btManifoldResult.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btSimulationIslandManager.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btSphereBoxCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btSphereSphereCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btSphereTriangleCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/btUnionFind.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionDispatch/SphereTriangleDetector.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btBox2dShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btBoxShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btBvhTriangleMeshShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btCapsuleShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btCollisionShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btCompoundShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btConcaveShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btConeShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btConvex2dShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btConvexHullShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btConvexInternalShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btConvexPointCloudShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btConvexPolyhedron.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btConvexShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btConvexTriangleMeshShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btCylinderShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btEmptyShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btHeightfieldTerrainShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btMinkowskiSumShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btMultimaterialTriangleMeshShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btMultiSphereShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btOptimizedBvh.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btPolyhedralConvexShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btScaledBvhTriangleMeshShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btShapeHull.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btSphereShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btStaticPlaneShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btStridingMeshInterface.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btTetrahedronShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btTriangleBuffer.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btTriangleCallback.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btTriangleIndexVertexArray.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btTriangleIndexVertexMaterialArray.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btTriangleMesh.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btTriangleMeshShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/CollisionShapes/btUniformScalingShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/Gimpact/btContactProcessing.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/Gimpact/btGenericPoolAllocator.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/Gimpact/btGImpactBvh.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/Gimpact/btGImpactCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/Gimpact/btGImpactQuantizedBvh.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/Gimpact/btGImpactShape.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/Gimpact/btTriangleShapeEx.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/Gimpact/gim_box_set.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/Gimpact/gim_contact.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/Gimpact/gim_memory.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/Gimpact/gim_tri_collision.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/NarrowPhaseCollision/btContinuousConvexCollision.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/NarrowPhaseCollision/btConvexCast.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/NarrowPhaseCollision/btGjkConvexCast.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/NarrowPhaseCollision/btGjkEpa2.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/NarrowPhaseCollision/btGjkEpaPenetrationDepthSolver.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/NarrowPhaseCollision/btGjkPairDetector.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/NarrowPhaseCollision/btMinkowskiPenetrationDepthSolver.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/NarrowPhaseCollision/btPersistentManifold.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/NarrowPhaseCollision/btPolyhedralContactClipping.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/NarrowPhaseCollision/btRaycastCallback.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/NarrowPhaseCollision/btSubSimplexConvexCast.cpp \
-    $(BULLETSOURCE)/src/BulletCollision/NarrowPhaseCollision/btVoronoiSimplexSolver.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/Character/btKinematicCharacterController.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/ConstraintSolver/btConeTwistConstraint.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/ConstraintSolver/btContactConstraint.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/ConstraintSolver/btGeneric6DofSpringConstraint.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/ConstraintSolver/btHinge2Constraint.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/ConstraintSolver/btHingeConstraint.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/ConstraintSolver/btPoint2PointConstraint.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/ConstraintSolver/btSliderConstraint.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/ConstraintSolver/btSolve2LinearConstraint.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/ConstraintSolver/btTypedConstraint.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/ConstraintSolver/btUniversalConstraint.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/Dynamics/btContinuousDynamicsWorld.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/Dynamics/btDiscreteDynamicsWorld.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/Dynamics/btRigidBody.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/Dynamics/btSimpleDynamicsWorld.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/Vehicle/btRaycastVehicle.cpp \
-    $(BULLETSOURCE)/src/BulletDynamics/Vehicle/btWheelInfo.cpp \
-    $(BULLETSOURCE)/src/BulletSoftBody/btDefaultSoftBodySolver.cpp \
-    $(BULLETSOURCE)/src/BulletSoftBody/btSoftBodyConcaveCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletSoftBody/btSoftBody.cpp \
-    $(BULLETSOURCE)/src/BulletSoftBody/btSoftBodyHelpers.cpp \
-    $(BULLETSOURCE)/src/BulletSoftBody/btSoftBodyRigidBodyCollisionConfiguration.cpp \
-    $(BULLETSOURCE)/src/BulletSoftBody/btSoftRigidCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/BulletSoftBody/btSoftRigidDynamicsWorld.cpp \
-    $(BULLETSOURCE)/src/BulletSoftBody/btSoftSoftCollisionAlgorithm.cpp \
-    $(BULLETSOURCE)/src/LinearMath/btAlignedAllocator.cpp \
-    $(BULLETSOURCE)/src/LinearMath/btConvexHullComputer.cpp \
-    $(BULLETSOURCE)/src/LinearMath/btConvexHull.cpp \
-    $(BULLETSOURCE)/src/LinearMath/btGeometryUtil.cpp \
-    $(BULLETSOURCE)/src/LinearMath/btQuickprof.cpp \
-    $(BULLETSOURCE)/src/LinearMath/btSerializer.cpp
+SRC_FILES += $(wildcard $(BULLETSOURCE)/Extras/Serialize/BulletFileLoader/*.cpp) \
+    $(wildcard $(BULLETSOURCE)/Extras/Serialize/BulletWorldImporter/*.cpp) \
+    $(wildcard $(BULLETSOURCE)/src/BulletCollision/*/*.cpp) \
+    $(wildcard $(BULLETSOURCE)/src/BulletDynamics/Character/*.cpp) \
+    $(wildcard $(BULLETSOURCE)/src/BulletDynamics/ConstraintSolver/*.cpp) \
+    $(wildcard $(BULLETSOURCE)/src/BulletDynamics/Dynamics/bt*.cpp) \
+    $(wildcard $(BULLETSOURCE)/src/BulletDynamics/Vehicle/*.cpp) \
+    $(wildcard $(BULLETSOURCE)/src/BulletSoftBody/*.cpp) \
+    $(wildcard $(BULLETSOURCE)/src/LinearMath/*.cpp)
 LOCAL_C_INCLUDES += external/klaatu-bullet/src \
     external/klaatu-bullet/Extras/Serialize/BulletFileLoader \
     external/klaatu-bullet/Extras/Serialize/BulletWorldImporter
