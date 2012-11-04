@@ -29,7 +29,6 @@ SRC_FILES := $(wildcard $(LOCAL_PATH)/../klaatu-gfx/*.cpp)
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/bullet/*.cpp)
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/ttf/*.cpp)
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/nvtristrip/*.cpp)
-SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/png/*.c)
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/zlib/*.c)
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/detour/*.cpp)
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/recast/*.cpp)
@@ -47,6 +46,7 @@ LOCAL_SHARED_LIBRARIES += libinput
 endif
 LOCAL_SHARED_LIBRARIES += libandroid_runtime
 LOCAL_SHARED_LIBRARIES += libmedia libcutils
+LOCAL_STATIC_LIBRARIES += libpng
 
 LOCAL_LDLIBS := -L$(LOCAL_PATH)/../libs/armeabi 
 LOCAL_LDLIBS += -lz -lm -ldl -lGLESv2 -lEGL -llog -lopenal
