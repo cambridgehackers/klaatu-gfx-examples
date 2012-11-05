@@ -45,7 +45,7 @@ LOCAL_C_INCLUDES += external/klaatu-recastnavigation/Detour/Include \
     external/klaatu-recastnavigation/DebugUtils/Include
 #for stb_truetype.h
 LOCAL_C_INCLUDES += external/klaatu-recastnavigation
-SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-recastnavigation/Detour/Source/*.cpp)
+SRC_FILES := $(wildcard $(LOCAL_PATH)/../klaatu-recastnavigation/Detour/Source/*.cpp)
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-recastnavigation/Recast/Source/*.cpp)
 
 BULLETSOURCE := $(LOCAL_PATH)/../klaatu-bullet
@@ -65,13 +65,13 @@ SRC_FILES += $(wildcard $(BULLETSOURCE)/Extras/Serialize/BulletFileLoader/*.cpp)
 LOCAL_C_INCLUDES += external/klaatu-nvtristrip/include
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-nvtristrip/src/NvTriStrip/*.cpp)
 
-LOCAL_C_INCLUDES += external/klaatu-gfx-extra/zlib
-SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/zlib/*.c)
+LOCAL_C_INCLUDES += external/zlib
+SRC_FILES += $(LOCAL_PATH)/../zlib/contrib/minizip/unzip.c $(LOCAL_PATH)/../zlib/contrib/minizip/ioapi.c
 
 LOCAL_C_INCLUDES += external/tremolo/Tremolo
 LOCAL_C_INCLUDES += external/klaatu-nvtristrip/include
 
-SRC_FILES := $(wildcard $(LOCAL_PATH)/../klaatu-gfx/*.cpp)
+SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx/*.cpp)
 
 SRC_FILES := $(SRC_FILES:$(LOCAL_PATH)/%=%)
 LOCAL_SRC_FILES := $(SRC_FILES) sdk/$(TEST_DIRECTORY)/templateApp.cpp \
@@ -85,12 +85,13 @@ else
 LOCAL_SHARED_LIBRARIES += libinput
 endif
 LOCAL_SHARED_LIBRARIES += libandroid_runtime
-LOCAL_SHARED_LIBRARIES += libmedia libcutils
+LOCAL_SHARED_LIBRARIES += libmedia libcutils libz
 LOCAL_STATIC_LIBRARIES += libpng
 
 LOCAL_LDLIBS := -L$(LOCAL_PATH)/../libs/armeabi 
 LOCAL_LDLIBS += -lz -lm -ldl -lGLESv2 -lEGL -llog -lopenal
-LOCAL_CFLAGS := -O3 -mno-thumb -Wno-write-strings
+# USE_FILE32API is for compiling ioapi.c
+LOCAL_CFLAGS := -O3 -mno-thumb -Wno-write-strings -DUSE_FILE32API
 SVERSION:=$(subst ., ,$(PLATFORM_VERSION))
 LOCAL_CFLAGS += -DSHORT_PLATFORM_VERSION=$(word 1,$(SVERSION))$(word 2,$(SVERSION))
 LOCAL_CPPFLAGS := $(LOCAL_CFLAGS)
