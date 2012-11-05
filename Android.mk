@@ -55,12 +55,40 @@ LOCAL_C_INCLUDES += external/klaatu-bullet/src \
     external/klaatu-bullet/Extras/Serialize/BulletFileLoader \
     external/klaatu-bullet/Extras/Serialize/BulletWorldImporter
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/ttf/*.cpp)
-SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/nvtristrip/*.cpp)
+#SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/nvtristrip/*.cpp)
+LOCAL_C_INCLUDES += external/klaatu-nvtristrip/include
+SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-nvtristrip/src/NvTriStrip/*.cpp)
 LOCAL_C_INCLUDES += external/klaatu-gfx-extra/zlib
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/zlib/*.c)
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-recastnavigation/Detour/Source/*.cpp)
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-recastnavigation/Recast/Source/*.cpp)
-SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/vorbis/*.c)
+LOCAL_C_INCLUDES += external/tremolo/Tremolo
+LOCAL_C_INCLUDES += external/klaatu-nvtristrip/include
+ZZLOCAL_C_INCLUDES += external/libvorbis/include
+ZZSRC_FILES += $(LOCAL_PATH)/../libvorbis/lib/analysis.c \
+    $(LOCAL_PATH)/../libvorbis/lib/bitrate.c \
+    $(LOCAL_PATH)/../libvorbis/lib/block.c \
+    $(LOCAL_PATH)/../libvorbis/lib/codebook.c \
+    $(LOCAL_PATH)/../libvorbis/lib/envelope.c \
+    $(LOCAL_PATH)/../libvorbis/lib/floor0.c \
+    $(LOCAL_PATH)/../libvorbis/lib/floor1.c \
+    $(LOCAL_PATH)/../libvorbis/lib/info.c \
+    $(LOCAL_PATH)/../libvorbis/lib/lookup.c \
+    $(LOCAL_PATH)/../libvorbis/lib/lpc.c \
+    $(LOCAL_PATH)/../libvorbis/lib/lsp.c \
+    $(LOCAL_PATH)/../libvorbis/lib/mapping0.c \
+    $(LOCAL_PATH)/../libvorbis/lib/mdct.c \
+    $(LOCAL_PATH)/../libvorbis/lib/psy.c \
+    $(LOCAL_PATH)/../libvorbis/lib/registry.c \
+    $(LOCAL_PATH)/../libvorbis/lib/res0.c \
+    $(LOCAL_PATH)/../libvorbis/lib/sharedbook.c \
+    $(LOCAL_PATH)/../libvorbis/lib/smallft.c \
+    $(LOCAL_PATH)/../libvorbis/lib/synthesis.c \
+    $(LOCAL_PATH)/../libvorbis/lib/vorbisfile.c \
+    $(LOCAL_PATH)/../libvorbis/lib/window.c
+#    $(LOCAL_PATH)/../libvorbis/lib/bitwise.c \
+#    $(LOCAL_PATH)/../libvorbis/lib/framing.c \
+
 SRC_FILES := $(SRC_FILES:$(LOCAL_PATH)/%=%)
 LOCAL_SRC_FILES := $(SRC_FILES) sdk/$(TEST_DIRECTORY)/templateApp.cpp \
     ../klaatu-api/klaatu_api.cpp ../klaatu-api/klaatu_touch.cpp \
