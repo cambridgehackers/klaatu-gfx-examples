@@ -38,10 +38,20 @@ LOCAL_C_INCLUDES = external/klaatu-openal-soft/include
 LOCAL_C_INCLUDES += external/stlport/stlport bionic frameworks/native/include frameworks/base/services $(LOCAL_PATH)
 LOCAL_C_INCLUDES += frameworks/base/include/surfaceflinger frameworks/native/include/gui \
     frameworks/base/services/input frameworks/base/include/ui external/klaatu-api external/klaatu-gfx external/klaatu-gfx-extra
-LOCAL_C_INCLUDES += external/libpng external/klaatu-recastnavigation/Detour/Include external/klaatu-recastnavigation/Recast/Include
-LOCAL_C_INCLUDES += external/klaatu-recastnavigation/Detour/Include external/klaatu-recastnavigation/Recast/Include external/klaatu-recastnavigation/DebugUtils/Include
-SRC_FILES := $(wildcard $(LOCAL_PATH)/../klaatu-gfx/*.cpp)
+LOCAL_C_INCLUDES += external/libpng
+
+LOCAL_C_INCLUDES += external/klaatu-recastnavigation/Detour/Include \
+    external/klaatu-recastnavigation/Recast/Include \
+    external/klaatu-recastnavigation/DebugUtils/Include
+#for stb_truetype.h
+LOCAL_C_INCLUDES += external/klaatu-recastnavigation
+SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-recastnavigation/Detour/Source/*.cpp)
+SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-recastnavigation/Recast/Source/*.cpp)
+
 BULLETSOURCE := $(LOCAL_PATH)/../klaatu-bullet
+LOCAL_C_INCLUDES += external/klaatu-bullet/src \
+    external/klaatu-bullet/Extras/Serialize/BulletFileLoader \
+    external/klaatu-bullet/Extras/Serialize/BulletWorldImporter
 SRC_FILES += $(wildcard $(BULLETSOURCE)/Extras/Serialize/BulletFileLoader/*.cpp) \
     $(wildcard $(BULLETSOURCE)/Extras/Serialize/BulletWorldImporter/*.cpp) \
     $(wildcard $(BULLETSOURCE)/src/BulletCollision/*/*.cpp) \
@@ -51,43 +61,17 @@ SRC_FILES += $(wildcard $(BULLETSOURCE)/Extras/Serialize/BulletFileLoader/*.cpp)
     $(wildcard $(BULLETSOURCE)/src/BulletDynamics/Vehicle/*.cpp) \
     $(wildcard $(BULLETSOURCE)/src/BulletSoftBody/*.cpp) \
     $(wildcard $(BULLETSOURCE)/src/LinearMath/*.cpp)
-LOCAL_C_INCLUDES += external/klaatu-bullet/src \
-    external/klaatu-bullet/Extras/Serialize/BulletFileLoader \
-    external/klaatu-bullet/Extras/Serialize/BulletWorldImporter
-SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/ttf/*.cpp)
-#SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/nvtristrip/*.cpp)
+
 LOCAL_C_INCLUDES += external/klaatu-nvtristrip/include
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-nvtristrip/src/NvTriStrip/*.cpp)
+
 LOCAL_C_INCLUDES += external/klaatu-gfx-extra/zlib
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-gfx-extra/zlib/*.c)
-SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-recastnavigation/Detour/Source/*.cpp)
-SRC_FILES += $(wildcard $(LOCAL_PATH)/../klaatu-recastnavigation/Recast/Source/*.cpp)
+
 LOCAL_C_INCLUDES += external/tremolo/Tremolo
 LOCAL_C_INCLUDES += external/klaatu-nvtristrip/include
-ZZLOCAL_C_INCLUDES += external/libvorbis/include
-ZZSRC_FILES += $(LOCAL_PATH)/../libvorbis/lib/analysis.c \
-    $(LOCAL_PATH)/../libvorbis/lib/bitrate.c \
-    $(LOCAL_PATH)/../libvorbis/lib/block.c \
-    $(LOCAL_PATH)/../libvorbis/lib/codebook.c \
-    $(LOCAL_PATH)/../libvorbis/lib/envelope.c \
-    $(LOCAL_PATH)/../libvorbis/lib/floor0.c \
-    $(LOCAL_PATH)/../libvorbis/lib/floor1.c \
-    $(LOCAL_PATH)/../libvorbis/lib/info.c \
-    $(LOCAL_PATH)/../libvorbis/lib/lookup.c \
-    $(LOCAL_PATH)/../libvorbis/lib/lpc.c \
-    $(LOCAL_PATH)/../libvorbis/lib/lsp.c \
-    $(LOCAL_PATH)/../libvorbis/lib/mapping0.c \
-    $(LOCAL_PATH)/../libvorbis/lib/mdct.c \
-    $(LOCAL_PATH)/../libvorbis/lib/psy.c \
-    $(LOCAL_PATH)/../libvorbis/lib/registry.c \
-    $(LOCAL_PATH)/../libvorbis/lib/res0.c \
-    $(LOCAL_PATH)/../libvorbis/lib/sharedbook.c \
-    $(LOCAL_PATH)/../libvorbis/lib/smallft.c \
-    $(LOCAL_PATH)/../libvorbis/lib/synthesis.c \
-    $(LOCAL_PATH)/../libvorbis/lib/vorbisfile.c \
-    $(LOCAL_PATH)/../libvorbis/lib/window.c
-#    $(LOCAL_PATH)/../libvorbis/lib/bitwise.c \
-#    $(LOCAL_PATH)/../libvorbis/lib/framing.c \
+
+SRC_FILES := $(wildcard $(LOCAL_PATH)/../klaatu-gfx/*.cpp)
 
 SRC_FILES := $(SRC_FILES:$(LOCAL_PATH)/%=%)
 LOCAL_SRC_FILES := $(SRC_FILES) sdk/$(TEST_DIRECTORY)/templateApp.cpp \
